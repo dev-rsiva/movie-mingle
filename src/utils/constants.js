@@ -18,6 +18,8 @@ export const API_OPTIONS = {
 
 export const MAIN_MOVIE_VIDEO_API = "https://api.themoviedb.org/3/movie/";
 
+export const IMG_CDN = "https://image.tmdb.org/t/p/w780/";
+
 // const YOUTUBE_API_KEY = "AIzaSyBy4WUVwSIifzk6RuHX_Miahq0UZB59Jfo";
 
 // export const YOUTUBE_VIDEO_API =
