@@ -27,9 +27,7 @@ export const userValidation = (email, password, fullname) => {
       ? ""
       : isFullNameValid(fullname?.current?.value);
 
-  const bothMessageNotNull = formDataMessage !== "" && fullnameMessage !== "";
-
-  console.log(bothMessageNotNull);
+  const bothMessageNotNull = formDataMessage !== "" && fullnameMessage !== ""; 
 
   const message = bothMessageNotNull
     ? formDataMessage + " & " + fullnameMessage

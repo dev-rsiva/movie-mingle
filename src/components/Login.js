@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { userValidation } from "../utils/validate";
-import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -11,6 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMG, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -21,8 +21,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const fullname = useRef(null);
-
-  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     const updatedErrorMessage = userValidation(email, password, fullname);
@@ -43,21 +41,14 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log("signed up", user);
           updateProfile(auth.currentUser, {
             displayName: fullname?.current?.value,
-            photoURL: "https://avatars.githubusercontent.com/u/131841846?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
-              console.log(
-                "outhStateChanged",
-                uid,
-                email,
-                displayName,
-                photoURL
-              );
+
               dispatch(
                 addUser({
                   uid: uid,
@@ -66,7 +57,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+              // navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -88,9 +79,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("signedIn", user);
-          console.log(fullname);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -109,7 +97,7 @@ const Login = () => {
       <div className="w-[100vw] h-[100vh]">
         <img
           className="w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/6cefb2f5-90be-4f57-adc4-f6c3c579273d/3943990c-f4e0-4147-82ad-f531e2b547f3/IN-en-20240401-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+          src={BG_IMG}
           alt="backgroundImg"
         />
       </div>
