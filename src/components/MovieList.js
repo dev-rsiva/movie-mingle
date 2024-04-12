@@ -2,8 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 import "../App.css";
 
-const MovieList = ({ title, movies }) => {
-  console.log(movies && movies[0].poster_path);
+const MovieList = ({ title, movies }) => { 
   return (
     <div className="px-6 py-4">
       <h1 className="text-2xl font-bold px-3 py-2 text-white">{title}</h1>

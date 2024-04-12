@@ -4,8 +4,7 @@ import useMovieTrailer from "../utils/useMovieTrailer";
 const VideoBackground = ({ movieId }) => {
   // Another way - Storing data of trailer key using local state variable instead of storing in redux store
   // const [trailerId, setTrailerId] = useState(null);
-  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
-  console.log(movieId);
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo); 
   useMovieTrailer(movieId);
   return (
     <div className="w-full">

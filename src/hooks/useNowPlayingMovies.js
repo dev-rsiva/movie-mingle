@@ -11,13 +11,11 @@ const useNowPlayingMovies = () => {
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
       API_OPTIONS
     );
-    const json = await data.json();
-    console.log(json);
+    const json = await data.json(); 
     dispatch(addNowPlayingMovies(json.results));
   };
 
-  useEffect(() => {
-    console.log("effect");
+  useEffect(() => { 
     getNowPlayingMovies();
   }, []);
 };

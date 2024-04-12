@@ -11,13 +11,11 @@ const usePopularMovies = () => {
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
       API_OPTIONS
     );
-    const json = await data.json();
-    console.log(json);
+    const json = await data.json(); 
     dispatch(addPopularMovies(json.results));
   };
 
-  useEffect(() => {
-    console.log("effect");
+  useEffect(() => { 
     getPopularMovies();
   }, []);
 };
