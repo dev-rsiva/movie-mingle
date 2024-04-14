@@ -6,7 +6,7 @@ const GptSearchBar = () => {
   const { handleGptSearchClick, searchText, langKey } = useGptMovies();
 
   return (
-    <div className="w-1/3 top-40 left-[50%] translate-x-[-50%] relative">
+    <div className="w-1/3 max-sm:w-[80%] top-40 left-[50%] translate-x-[-50%] relative">
       <form
         className="bg-black p-2 flex justify-center items-center"
         onSubmit={(e) => e.preventDefault()}

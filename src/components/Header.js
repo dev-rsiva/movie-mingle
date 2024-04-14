@@ -63,8 +63,8 @@ const Header = () => {
       });
   };
   return (
-    <div className="absolute w-full py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="netflixLogo" />
+    <div className="absolute max-sm:fixed w-full py-2 bg-gradient-to-b from-black max-sm:bg-black z-10 flex justify-between max-sm:flex-col max-sm:items-center">
+      <img className="w-44 max-sm:text-center" src={LOGO} alt="netflixLogo" />
       {user && (
         <div className="flex items-center p-2">
           {/* <FontAwesomeIcon icon={faUser} className="text-xl" /> */}
